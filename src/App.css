@@ -1378,7 +1378,7 @@ img {
 
 .featured-project {
   position: relative;
-  margin-top: 95px;
+  margin-top: 55px;
   padding-top: 34px;
   border-top: 1px solid var(--line);
 }
@@ -1404,7 +1404,7 @@ img {
 .featured-project-header h3 {
   margin: 0;
   font-family: 'Syne', sans-serif;
-  font-size: clamp(70px, 10vw, 170px);
+  font-size: clamp(56px, 7vw, 120px);
   font-weight: 800;
   line-height: 0.78;
   letter-spacing: -0.08em;
@@ -1434,7 +1434,7 @@ img {
 
 .featured-project-description {
   max-width: 610px;
-  margin: 55px 0 65px auto;
+  margin: 35px 0 40px auto;
 }
 
 .featured-project-description p {
@@ -1936,4 +1936,602 @@ img {
   text-align: left;
   cursor: pointer;
   appearance: none;
+}
+
+/* =========================================================
+   CCIMCAT 2026 — REFINAMIENTO DE CASO
+   ========================================================= */
+
+.ccimcat-case {
+  margin-top: 48px;
+  padding-top: 28px;
+}
+
+/* CABECERA */
+
+.ccimcat-case .featured-project-header {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.28fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.ccimcat-case .featured-project-header h3 {
+  margin-bottom: 10px;
+}
+
+.ccimcat-case .project-client {
+  margin-bottom: 0;
+}
+
+.ccimcat-case .featured-project-role {
+  padding-top: 10px;
+}
+
+/* INTRO */
+
+.ccimcat-case-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 72px;
+  align-items: end;
+  margin-top: 52px;
+  margin-bottom: 42px;
+}
+
+.ccimcat-case-lead {
+  max-width: 760px;
+}
+
+.ccimcat-kicker {
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.ccimcat-case-lead h4 {
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(42px, 5.2vw, 82px);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+}
+
+.ccimcat-case-description {
+  max-width: 560px;
+}
+
+.ccimcat-case-description p {
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* ETIQUETAS */
+
+.ccimcat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ccimcat-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* CABECERA DE EVIDENCIAS */
+
+.ccimcat-evidence-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  margin-bottom: 1px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ccimcat-evidence-head strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+/* GALERÍA */
+
+.ccimcat-gallery {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.ccimcat-gallery .project-media,
+.ccimcat-gallery .project-pdf {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* PIEZA PRINCIPAL */
+
+.ccimcat-gallery .ccimcat-hero-media {
+  grid-column: span 7;
+  min-height: 560px;
+}
+
+/* PIEZAS SECUNDARIAS */
+
+.ccimcat-gallery > :nth-child(2) {
+  grid-column: span 5;
+  min-height: 278px;
+}
+
+.ccimcat-gallery > :nth-child(3) {
+  grid-column: span 5;
+  min-height: 278px;
+}
+
+.ccimcat-gallery > :nth-child(4) {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+.ccimcat-gallery > :nth-child(5) {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+.ccimcat-gallery > :nth-child(6) {
+  grid-column: span 4;
+  min-height: 320px;
+}
+
+/* MEDIA */
+
+.ccimcat-gallery .project-media img,
+.ccimcat-gallery .project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ccimcat-gallery .media-caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 3;
+}
+
+.ccimcat-gallery .media-open-hint {
+  z-index: 4;
+}
+
+/* PDF */
+
+.ccimcat-pdf-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 28px;
+  background: #111;
+  color: #f4f1eb;
+}
+
+.ccimcat-pdf-card h4 {
+  margin: 14px 0 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.ccimcat-pdf-card p {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.ccimcat-pdf-card > div > span:first-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+.ccimcat-pdf-card .pdf-arrow {
+  font-size: 28px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .ccimcat-case-intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 40px;
+    margin-bottom: 34px;
+  }
+
+  .ccimcat-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ccimcat-gallery .ccimcat-hero-media,
+  .ccimcat-gallery > :nth-child(2),
+  .ccimcat-gallery > :nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .ccimcat-gallery > :nth-child(4),
+  .ccimcat-gallery > :nth-child(5),
+  .ccimcat-gallery > :nth-child(6) {
+    grid-column: span 1;
+  }
+}
+.ccimcat-case .featured-project-header h3 {
+  font-size: clamp(72px, 7.2vw, 132px);
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+}
+
+.ccimcat-case .featured-project-role {
+  max-width: 260px;
+  justify-self: end;
+  text-align: left;
+}
+
+.ccimcat-case .featured-project-role strong {
+  display: block;
+  line-height: 1.25;
+}
+
+.ccimcat-case-lead h4 {
+  font-size: clamp(42px, 4.4vw, 68px);
+  max-width: 720px;
+}
+
+.ccimcat-case-intro {
+  gap: 56px;
+}
+
+@media (max-width: 620px) {
+
+  .ccimcat-case {
+    margin-top: 32px;
+    padding-top: 22px;
+  }
+
+  .ccimcat-case .featured-project-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ccimcat-case-intro {
+    margin-top: 34px;
+  }
+
+  .ccimcat-case-description p {
+    font-size: 16px;
+  }
+
+  .ccimcat-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .ccimcat-gallery .ccimcat-hero-media,
+  .ccimcat-gallery > :nth-child(2),
+  .ccimcat-gallery > :nth-child(3),
+  .ccimcat-gallery > :nth-child(4),
+  .ccimcat-gallery > :nth-child(5),
+  .ccimcat-gallery > :nth-child(6) {
+    grid-column: span 1;
+    min-height: 280px;
+  }
+}
+
+/* =========================================================
+   GALERÍAS — CONTROL "VER MÁS"
+   ========================================================= */
+
+summary[class$="-more-button"] {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 18px 0 16px;
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--black);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 180ms ease;
+}
+
+summary[class$="-more-button"]::-webkit-details-marker {
+  display: none;
+}
+
+summary[class$="-more-button"]::marker {
+  display: none;
+  content: '';
+}
+
+summary[class$="-more-button"] > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+summary[class$="-more-button"] > span:first-child::before {
+  content: none;
+}
+
+summary[class$="-more-button"] > span:last-child {
+  color: var(--gray);
+}
+
+summary[class$="-more-button"]:hover {
+  opacity: 0.55;
+}
+
+details[open] > summary[class$="-more-button"] > span:first-child::before {
+  content: '−';
+}
+
+details[open] > summary[class$="-more-button"] {
+  margin-bottom: 8px;
+}
+
+/* Espacio limpio entre el botón y el contenido desplegado */
+.resource-grid-more,
+.brand-gallery-grid-more,
+.kutit-video-grid-more,
+.bdp-chapters-grid-more {
+  margin-top: 8px;
+}
+/* =========================================================
+   RESPONSIVE FINAL — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Evita que los titulares se salgan de la pantalla */
+  h1,
+  h2,
+  h3 {
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  /* HERO */
+  .hero h1 {
+    font-size: clamp(42px, 13vw, 72px);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    max-width: 100%;
+  }
+
+  /* PROFILE / STATEMENT */
+  .statement h2 {
+    font-size: clamp(42px, 13vw, 72px);
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+    max-width: 100%;
+  }
+
+  /* SERVICIOS / CAPACIDADES */
+  .capabilities h2,
+  .services h2 {
+    font-size: clamp(44px, 12vw, 70px);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    max-width: 100%;
+  }
+
+  /* PROYECTOS */
+  .featured-project {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .featured-project-header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .featured-project-header h3 {
+    font-size: clamp(48px, 14vw, 82px);
+    line-height: 0.82;
+    letter-spacing: -0.055em;
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  .featured-project-description {
+    max-width: 100%;
+    margin: 30px 0 40px;
+  }
+
+  .featured-project-description p {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* GALERÍAS */
+  .project-gallery {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* CCIMCAT 2025 */
+  .brand-gallery,
+  .ccimcat-resources,
+  .kutit-innovation,
+  .bdp-radio-novela {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Imágenes nunca deben provocar scroll lateral */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  /* Texto largo */
+  .project-client,
+  .featured-project-role,
+  .featured-project-description {
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   CORRECCIÓN FINAL MOBILE — EVITAR DESBORDE HORIZONTAL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  main,
+  section,
+  article,
+  div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Todos los grandes titulares deben poder romper línea */
+  h1,
+  h2,
+  h3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  /* HERO */
+  h1 {
+    font-size: clamp(38px, 10vw, 58px) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  /* PERFIL / STATEMENT */
+  h2 {
+    font-size: clamp(40px, 10.5vw, 62px) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  /* PROYECTOS */
+  .featured-project-header {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .featured-project-header h3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(44px, 11vw, 72px) !important;
+    line-height: 0.82 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .featured-project-role {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .featured-project-description {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 24px 0 32px !important;
+  }
+
+  .featured-project-description p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* CLIENTE / METADATOS */
+  .project-client {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* CAPACIDADES / TARJETAS */
+  .capability-card,
+  .service-card,
+  .skill-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* IMÁGENES Y VIDEOS */
+  img,
+  video {
+    max-width: 100% !important;
+  }
 }

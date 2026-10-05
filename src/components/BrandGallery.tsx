@@ -28,7 +28,7 @@ const brands: BrandItem[] = Object.entries(brandFiles)
   .sort((a, b) => a.name.localeCompare(b.name))
 
 function BrandGallery() {
-  const visibleBrands = brands.slice(0, 24)
+  const visibleBrands = brands.slice(0, 8)
 
   return (
     <div className="brand-gallery">
@@ -74,11 +74,40 @@ function BrandGallery() {
         ))}
       </div>
 
-      {brands.length > 24 && (
-        <div className="brand-gallery-more">
-          <span>+ {brands.length - 24} archivos</span>
-        </div>
-      )}
+      {brands.length > 8 && (
+  <details className="brand-gallery-preview">
+    <summary className="brand-gallery-more">
+      <span>+ VER MÁS</span>
+      <span>{brands.length - 8} piezas</span>
+    </summary>
+
+    <div className="brand-gallery-grid brand-gallery-grid-more">
+      {brands.slice(8).map((brand, index) => (
+        <article
+          className="brand-card"
+          key={`${brand.src}-${index + 8}`}
+        >
+          <div className="brand-card-image">
+            <img
+              src={brand.src}
+              alt={`Identidad de ${brand.name}`}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div className="brand-card-footer">
+            <span>
+              {String(index + 9).padStart(2, '0')}
+            </span>
+
+            <p>{brand.name}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </details>
+)}
     </div>
   )
 }

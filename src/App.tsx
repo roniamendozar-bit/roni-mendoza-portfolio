@@ -436,33 +436,44 @@ const closeMedia = () => {
 
   </div>
 
-  <article className="featured-project">
+  <article className="featured-project ccimcat-case">
 
-    <div className="featured-project-header">
+  <div className="featured-project-header">
 
-      <div>
-        <span className="project-number">
-          01 / 06
-        </span>
+    <div className="ccimcat-title-block">
+      <span className="project-number">
+        01 / 06
+      </span>
 
-        <h3>
-          CCIMCAT
-        </h3>
+      <h3>CCIMCAT</h3>
 
-        <p className="project-client">
-          Comunicación integral / Plan International / 2026
-        </p>
-      </div>
-
-      <div className="featured-project-role">
-        <span>ROL</span>
-        <strong>CONSULTOR DE COMUNICACIÓN INTEGRAL</strong>
-      </div>
-
+      <p className="project-client">
+        Comunicación integral / Plan International / 2026
+      </p>
     </div>
 
-    <div className="featured-project-description">
+    <div className="featured-project-role">
+      <span>ROL</span>
+      <strong>
+        CONSULTOR DE COMUNICACIÓN INTEGRAL
+      </strong>
+    </div>
 
+  </div>
+
+  <div className="ccimcat-case-intro">
+
+    <div className="ccimcat-case-lead">
+      <span className="ccimcat-kicker">
+        COMUNICACIÓN INTEGRAL
+      </span>
+
+      <h4>
+        De la idea a la pieza final.
+      </h4>
+    </div>
+
+    <div className="ccimcat-case-description">
       <p>
         Desarrollo de materiales institucionales y educativos,
         contenidos gráficos y audiovisuales, piezas de difusión y
@@ -470,190 +481,202 @@ const closeMedia = () => {
         adolescencia y emprendimiento.
       </p>
 
+      <div className="ccimcat-tags">
+        <span>ESTRATEGIA</span>
+        <span>CONTENIDO</span>
+        <span>DISEÑO</span>
+        <span>AUDIOVISUAL</span>
+      </div>
     </div>
 
-    <div className="project-gallery">
-
-      <button
-        type="button"
-        className="project-media project-media-large project-media-button"
-        onClick={() =>
-          openMedia({
-            type: 'image',
-            src: ccimcatCuaderno,
-            title: 'Cuaderno educativo — CCIMCAT',
-          })
-        }
-        aria-label="Abrir cuaderno educativo de CCIMCAT"
-      >
-        <img
-          src={ccimcatCuaderno}
-          alt="Cuaderno educativo desarrollado para CCIMCAT"
-        />
-
-        <span className="media-caption">
-          <span>01</span>
-          <span>CUADERNO / MATERIAL EDUCATIVO</span>
-        </span>
-
-        <span className="media-open-hint">
-          VER PIEZA ↗
-        </span>
-      </button>
-
-      <button
-        type="button"
-        className="project-media project-media-button"
-        onClick={() =>
-          openMedia({
-            type: 'image',
-            src: ccimcatBanner,
-            title: 'Banner AMI — CCIMCAT',
-          })
-        }
-        aria-label="Abrir Banner AMI"
-      >
-        <img
-          src={ccimcatBanner}
-          alt="Banner AMI desarrollado para CCIMCAT"
-        />
-
-        <span className="media-caption">
-          <span>02</span>
-          <span>BANNER / COMUNICACIÓN VISUAL</span>
-        </span>
-
-        <span className="media-open-hint">
-          VER PIEZA ↗
-        </span>
-      </button>
-
-      <button
-        type="button"
-        className="project-media project-media-button"
-        onClick={() =>
-          openMedia({
-            type: 'image',
-            src: ccimcatLetrero,
-            title: 'Semillitas al Aire — Identidad',
-          })
-        }
-        aria-label="Abrir pieza Semillitas al Aire"
-      >
-        <img
-          src={ccimcatLetrero}
-          alt="Letrero de Semillitas al Aire"
-        />
-
-        <span className="media-caption">
-          <span>03</span>
-          <span>IDENTIDAD / APLICACIÓN</span>
-        </span>
-
-        <span className="media-open-hint">
-          VER PIEZA ↗
-        </span>
-      </button>
-
-      <button
-        type="button"
-        className="project-media project-video project-media-button"
-        onClick={() =>
-          openMedia({
-            type: 'video',
-            src: ccimcatPodcast,
-            title: 'Semillitas al Aire — Episodio 03',
-          })
-        }
-        aria-label="Reproducir podcast Semillitas al Aire, episodio 3"
-      >
-        <video
-          src={ccimcatPodcast}
-          muted
-          autoPlay
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
-
-        <span className="media-caption">
-          <span>04</span>
-          <span>PODCAST / EPISODIO 03</span>
-        </span>
-
-        <span className="media-open-hint">
-          VER VIDEO ↗
-        </span>
-
-      </button>
-
-      <button
-        type="button"
-        className="project-media project-video project-media-button"
-        onClick={() =>
-          openMedia({
-            type: 'video',
-            src: ccimcatSpot,
-            title: 'Spot M3K — De la mano de una niña',
-          })
-        }
-        aria-label="Reproducir Spot M3K — De la mano de una niña"
-      >
-        <video
-          src={ccimcatSpot}
-          muted
-          autoPlay
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-        />
-
-        <span className="media-caption">
-          <span>05</span>
-          <span>SPOT / CAMPAÑA</span>
-        </span>
-
-        <span className="media-open-hint">
-          VER VIDEO ↗
-        </span>
-      </button>
-
-      <button
-  type="button"
-  className="project-pdf project-pdf-button"
-  onClick={() =>
-    openMedia({
-      type: 'pdf',
-      src: ccimcatCartilla,
-      title: 'Ruta del Emprendedor',
-    })
-  }
-  aria-label="Abrir Cartilla Ruta del Emprendedor"
->
-  <div>
-    <span>06</span>
-
-    <h4>
-      Ruta del
-      <br />
-      Emprendedor
-    </h4>
-
-    <p>
-      Cartilla final / PDF
-    </p>
   </div>
 
-  <span className="pdf-arrow">
-    ↗
-  </span>
-</button>
+  <div className="ccimcat-evidence-head">
+    <span>EVIDENCIAS SELECCIONADAS</span>
+    <strong>06</strong>
+  </div>
 
-    </div>
+  <div className="project-gallery ccimcat-gallery">
 
-  </article>
+    <button
+      type="button"
+      className="project-media project-media-large project-media-button ccimcat-hero-media"
+      onClick={() =>
+        openMedia({
+          type: 'image',
+          src: ccimcatCuaderno,
+          title: 'Cuaderno educativo — CCIMCAT',
+        })
+      }
+      aria-label="Abrir cuaderno educativo de CCIMCAT"
+    >
+      <img
+        src={ccimcatCuaderno}
+        alt="Cuaderno educativo desarrollado para CCIMCAT"
+      />
+
+      <span className="media-caption">
+        <span>01</span>
+        <span>CUADERNO / MATERIAL EDUCATIVO</span>
+      </span>
+
+      <span className="media-open-hint">
+        VER PIEZA ↗
+      </span>
+    </button>
+
+    <button
+      type="button"
+      className="project-media project-media-button"
+      onClick={() =>
+        openMedia({
+          type: 'image',
+          src: ccimcatBanner,
+          title: 'Banner AMI — CCIMCAT',
+        })
+      }
+      aria-label="Abrir Banner AMI"
+    >
+      <img
+        src={ccimcatBanner}
+        alt="Banner AMI desarrollado para CCIMCAT"
+      />
+
+      <span className="media-caption">
+        <span>02</span>
+        <span>BANNER / COMUNICACIÓN VISUAL</span>
+      </span>
+
+      <span className="media-open-hint">
+        VER PIEZA ↗
+      </span>
+    </button>
+
+    <button
+      type="button"
+      className="project-media project-media-button"
+      onClick={() =>
+        openMedia({
+          type: 'image',
+          src: ccimcatLetrero,
+          title: 'Semillitas al Aire — Identidad',
+        })
+      }
+      aria-label="Abrir pieza Semillitas al Aire"
+    >
+      <img
+        src={ccimcatLetrero}
+        alt="Letrero de Semillitas al Aire"
+      />
+
+      <span className="media-caption">
+        <span>03</span>
+        <span>IDENTIDAD / APLICACIÓN</span>
+      </span>
+
+      <span className="media-open-hint">
+        VER PIEZA ↗
+      </span>
+    </button>
+
+    <button
+      type="button"
+      className="project-media project-video project-media-button"
+      onClick={() =>
+        openMedia({
+          type: 'video',
+          src: ccimcatPodcast,
+          title: 'Semillitas al Aire — Episodio 03',
+        })
+      }
+      aria-label="Reproducir podcast Semillitas al Aire, episodio 3"
+    >
+      <video
+        src={ccimcatPodcast}
+        muted
+        autoPlay
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+
+      <span className="media-caption">
+        <span>04</span>
+        <span>PODCAST / EPISODIO 03</span>
+      </span>
+
+      <span className="media-open-hint">
+        VER VIDEO ↗
+      </span>
+    </button>
+
+    <button
+      type="button"
+      className="project-media project-video project-media-button"
+      onClick={() =>
+        openMedia({
+          type: 'video',
+          src: ccimcatSpot,
+          title: 'Spot M3K — De la mano de una niña',
+        })
+      }
+      aria-label="Reproducir Spot M3K — De la mano de una niña"
+    >
+      <video
+        src={ccimcatSpot}
+        muted
+        autoPlay
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+
+      <span className="media-caption">
+        <span>05</span>
+        <span>SPOT / CAMPAÑA</span>
+      </span>
+
+      <span className="media-open-hint">
+        VER VIDEO ↗
+      </span>
+    </button>
+
+    <button
+      type="button"
+      className="project-pdf project-pdf-button ccimcat-pdf-card"
+      onClick={() =>
+        openMedia({
+          type: 'pdf',
+          src: ccimcatCartilla,
+          title: 'Ruta del Emprendedor',
+        })
+      }
+      aria-label="Abrir Cartilla Ruta del Emprendedor"
+    >
+      <div>
+        <span>06</span>
+
+        <h4>
+          Ruta del
+          <br />
+          Emprendedor
+        </h4>
+
+        <p>
+          Cartilla final / PDF
+        </p>
+      </div>
+
+      <span className="pdf-arrow">
+        ↗
+      </span>
+    </button>
+
+  </div>
+
+</article>
 
 <article className="featured-project">
   <div className="featured-project-header">

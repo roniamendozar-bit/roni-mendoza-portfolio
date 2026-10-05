@@ -125,3 +125,83 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   CCIMCAT 2025 — VER MÁS
+   ========================================================= */
+
+.resource-preview {
+  margin-top: 1px;
+  border-top: 1px solid var(--line);
+}
+
+.resource-more-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resource-more-button::-webkit-details-marker {
+  display: none;
+}
+
+.resource-more-button::after {
+  content: '↘';
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0;
+  transition: transform 0.25s ease;
+}
+
+.resource-preview[open] .resource-more-button::after {
+  transform: rotate(-45deg);
+}
+
+.resource-more-button span:last-of-type {
+  margin-left: auto;
+  margin-right: 28px;
+  color: var(--gray);
+  font-size: 8px;
+}
+
+.resource-grid-more {
+  margin-top: 0;
+  padding-top: 1px;
+  border-top: 1px solid var(--line);
+}
+
+.resource-preview[open] .resource-grid-more {
+  animation: resourceReveal 0.4s ease both;
+}
+
+@keyframes resourceReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+
+  .resource-more-button {
+    padding: 18px 0;
+  }
+
+  .resource-more-button span:last-of-type {
+    margin-right: 18px;
+  }
+
+}

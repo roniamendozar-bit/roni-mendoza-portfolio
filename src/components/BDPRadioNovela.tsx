@@ -112,7 +112,7 @@ function BDPRadioNovela() {
         </div>
 
         <div className="bdp-chapters-grid">
-          {chapters.map((chapter, index) => (
+          {chapters.slice(0, 4).map((chapter, index) => (
             <button
               type="button"
               className="bdp-chapter-card"
@@ -142,6 +142,45 @@ function BDPRadioNovela() {
         </div>
 
       </div>
+      
+      {chapters.length > 4 && (
+  <details className="bdp-more">
+    <summary className="bdp-more-button">
+      <span>+ VER MÁS</span>
+      <span>{chapters.length - 4} capítulos</span>
+    </summary>
+
+    <div className="bdp-chapters-grid bdp-chapters-grid-more">
+      {chapters.slice(4).map((chapter, index) => (
+        <button
+          type="button"
+          className="bdp-chapter-card"
+          key={chapter.src}
+          onClick={() =>
+            setSelectedMedia({
+              type: 'video',
+              src: chapter.src,
+              title: chapter.name,
+            })
+          }
+        >
+          <div className="bdp-chapter-number">
+            {String(index + 5).padStart(2, '0')}
+          </div>
+
+          <div className="bdp-chapter-content">
+            <span>CAPÍTULO</span>
+            <strong>{chapter.name}</strong>
+          </div>
+
+          <div className="bdp-chapter-play">
+            ▶
+          </div>
+        </button>
+      ))}
+    </div>
+  </details>
+)}
 
       {selectedMedia?.type === 'video' && (
         <MediaViewer

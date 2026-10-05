@@ -71,48 +71,6 @@ function KutitInnovation() {
     setSelectedMedia(null)
   }
 
-  const renderVideoSection = (
-    title: string,
-    items: MediaItem[],
-    number: string
-  ) => {
-    if (!items.length) return null
-
-    return (
-      <section className="kutit-media-section">
-        <div className="kutit-section-heading">
-          <span>
-            {number} / {title}
-          </span>
-          <strong>{items.length}</strong>
-        </div>
-
-        <div className="kutit-video-grid">
-          {items.map((item, index) => (
-            <button
-              type="button"
-              className="kutit-video-card"
-              key={item.src}
-              onClick={() => openMedia(item)}
-            >
-              <div className="kutit-video-index">
-                {String(index + 1).padStart(2, '0')}
-              </div>
-
-              <div className="kutit-video-content">
-                <span>{title}</span>
-                <strong>{item.name}</strong>
-              </div>
-
-              <div className="kutit-play">
-                ▶
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-    )
-  }
 
   return (
     <>
@@ -144,9 +102,100 @@ function KutitInnovation() {
             combinando piezas gráficas y producción audiovisual para redes.
           </p>
         </div>
+        
 
-        {renderVideoSection('SPOTS', spots, '01')}
-        {renderVideoSection('REELS', reels, '02')}
+{(spots.length > 0 || reels.length > 0) && (
+  <section className="kutit-media-section kutit-audiovisual-section">
+
+    <div className="kutit-section-heading">
+      <span>01 / AUDIOVISUAL</span>
+      <strong>{spots.length + reels.length}</strong>
+    </div>
+
+    <div className="kutit-audiovisual-grid">
+
+      <div className="kutit-spots-grid">
+        {spots.slice(0, 4).map((item, index) => (
+          <button
+            type="button"
+            className="kutit-video-card"
+            key={item.src}
+            onClick={() => openMedia(item)}
+          >
+            <div className="kutit-video-index">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+
+            <div className="kutit-video-content">
+              <span>SPOTS</span>
+              <strong>{item.name}</strong>
+            </div>
+
+            <div className="kutit-play">
+              ▶
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {reels[0] && (
+        <button
+          type="button"
+          className="kutit-reel-feature"
+          onClick={() => openMedia(reels[0])}
+        >
+          <div className="kutit-reel-label">
+            <span>REEL</span>
+            <strong>01</strong>
+          </div>
+
+          <div className="kutit-reel-title">
+            {reels[0].name}
+          </div>
+
+          <div className="kutit-reel-play">
+            ▶
+          </div>
+        </button>
+      )}
+
+    </div>
+
+    {spots.length > 4 && (
+      <details className="kutit-reveal">
+        <summary className="kutit-more-button">
+          <span>+ VER MÁS SPOTS</span>
+          <span>{spots.length - 4} piezas</span>
+        </summary>
+
+        <div className="kutit-spots-more">
+          {spots.slice(4).map((item, index) => (
+            <button
+              type="button"
+              className="kutit-video-card"
+              key={item.src}
+              onClick={() => openMedia(item)}
+            >
+              <div className="kutit-video-index">
+                {String(index + 5).padStart(2, '0')}
+              </div>
+
+              <div className="kutit-video-content">
+                <span>SPOTS</span>
+                <strong>{item.name}</strong>
+              </div>
+
+              <div className="kutit-play">
+                ▶
+              </div>
+            </button>
+          ))}
+        </div>
+      </details>
+    )}
+
+  </section>
+)}
 
         {posts.length > 0 && (
           <section className="kutit-media-section">
@@ -156,7 +205,7 @@ function KutitInnovation() {
             </div>
 
             <div className="kutit-post-grid">
-              {posts.map((item, index) => (
+              {posts.slice(0, 8).map((item, index) => (
                 <button
                   type="button"
                   className="kutit-post-card"

@@ -79,7 +79,7 @@ function CCIMCAT2025Resources() {
           </div>
 
           <div className="resource-grid">
-            {trainingResources.slice(0, 12).map((resource, index) => (
+            {trainingResources.slice(0, 8).map((resource, index) => (
               <ResourceCard
                 key={`${resource.src}-${index}`}
                 resource={resource}
@@ -88,11 +88,26 @@ function CCIMCAT2025Resources() {
             ))}
           </div>
 
-          {trainingResources.length > 12 && (
-            <p className="resource-more">
-              + {trainingResources.length - 12} materiales
-            </p>
-          )}
+
+
+          {trainingResources.length > 8 && (
+  <details className="resource-preview">
+    <summary className="resource-more-button">
+      <span>+ VER MÁS</span>
+      <span>{trainingResources.length - 8} piezas</span>
+    </summary>
+
+    <div className="resource-grid resource-grid-more">
+      {trainingResources.slice(8).map((resource, index) => (
+        <ResourceCard
+          key={`${resource.src}-${index + 8}`}
+          resource={resource}
+          index={index + 8}
+        />
+      ))}
+    </div>
+  </details>
+)}
         </section>
       )}
 
@@ -104,7 +119,7 @@ function CCIMCAT2025Resources() {
           </div>
 
           <div className="resource-grid">
-            {socialResources.slice(0, 12).map((resource, index) => (
+            {socialResources.slice(0, 8).map((resource, index) => (
               <ResourceCard
                 key={`${resource.src}-${index}`}
                 resource={resource}
@@ -113,12 +128,25 @@ function CCIMCAT2025Resources() {
             ))}
           </div>
 
-          {socialResources.length > 12 && (
-            <p className="resource-more">
-              + {socialResources.length - 12} piezas
-            </p>
-          )}
-        </section>
+      {socialResources.length > 8 && (
+      <details className="resource-preview">
+        <summary className="resource-more-button">
+          <span>+ VER MÁS</span>
+          <span>{socialResources.length - 8} piezas</span>
+        </summary>
+
+        <div className="resource-grid resource-grid-more">
+          {socialResources.slice(8).map((resource, index) => (
+            <ResourceCard
+              key={`${resource.src}-${index + 8}`}
+              resource={resource}
+              index={index + 8}
+            />
+          ))}
+        </div>
+      </details>
+      )}
+      </section>
       )}
 
     </div>

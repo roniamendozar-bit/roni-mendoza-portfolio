@@ -69,7 +69,7 @@
 }
 
 .kutit-media-section {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .kutit-section-heading {
@@ -89,7 +89,6 @@
   text-transform: uppercase;
   opacity: 0.58;
 }
-
 .kutit-section-heading strong {
   font-size: 1rem;
   opacity: 0.5;
@@ -102,7 +101,6 @@
   background: rgba(20, 20, 20, 0.14);
   border: 1px solid rgba(20, 20, 20, 0.14);
 }
-
 .kutit-video-card {
   min-width: 0;
   display: grid;
@@ -273,5 +271,264 @@
 @media (max-width: 460px) {
   .kutit-post-grid {
     grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   KUTIT / COMPOSICIÓN AUDIOVISUAL DESTACADA
+   ========================================================= */
+
+.kutit-featured-video-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  align-items: stretch;
+}
+
+/* Los SPOTS ocupan las dos primeras columnas */
+.kutit-featured-video-layout .kutit-spots-section {
+  grid-column: 1 / 3;
+  margin-top: 0;
+}
+
+/* El REEL ocupa la tercera columna */
+.kutit-featured-video-layout .kutit-reels-section {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  margin-top: 0;
+}
+
+/* SPOTS = 2 columnas × 2 filas */
+.kutit-spots-section .kutit-video-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* REEL = una sola pieza ocupando toda su columna */
+.kutit-reels-section .kutit-video-grid {
+  grid-template-columns: 1fr;
+  height: 100%;
+}
+
+.kutit-reels-section .kutit-video-card {
+  height: 100%;
+  min-height: 300px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .kutit-featured-video-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .kutit-featured-video-layout .kutit-spots-section,
+  .kutit-featured-video-layout .kutit-reels-section {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .kutit-reels-section .kutit-video-card {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kutit-spots-section .kutit-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   KUTIT — AUDIOVISUAL / COMPOSICIÓN EDITORIAL
+   ========================================================= */
+
+.kutit-audiovisual-section {
+  margin-top: 4rem;
+}
+
+.kutit-audiovisual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1px;
+  border: 1px solid rgba(20, 20, 20, 0.14);
+  background: rgba(20, 20, 20, 0.14);
+}
+
+.kutit-spots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(150px, 1fr));
+  gap: 1px;
+  background: rgba(20, 20, 20, 0.14);
+}
+
+.kutit-spots-grid .kutit-video-card {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 0;
+  background: #f7f5f0;
+}
+
+/* =========================================================
+   REEL DESTACADO
+   ========================================================= */
+
+.kutit-reel-feature {
+  position: relative;
+  min-height: 100%;
+  min-width: 0;
+  padding: 2rem;
+  border: 0;
+  background: #111;
+  color: #f7f5f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.kutit-reel-feature::after {
+  content: "REEL";
+  position: absolute;
+  right: -1rem;
+  bottom: 0.5rem;
+  font-size: clamp(5rem, 10vw, 9rem);
+  line-height: 0.8;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.kutit-reel-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.kutit-reel-title {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+  margin-top: auto;
+  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.kutit-reel-play {
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(247, 245, 240, 0.4);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.kutit-reel-feature:hover .kutit-reel-play {
+  transform: scale(1.08);
+  background: rgba(247, 245, 240, 0.1);
+}
+
+/* =========================================================
+   SPOTS
+   ========================================================= */
+
+.kutit-spots-grid .kutit-video-content {
+  min-width: 0;
+}
+
+.kutit-spots-grid .kutit-video-content strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kutit-spots-grid .kutit-video-card:hover {
+  background: #eeece6;
+}
+
+/* =========================================================
+   VER MÁS
+   ========================================================= */
+
+.kutit-reveal {
+  margin-top: 1rem;
+}
+
+.kutit-more-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.9rem 0;
+  border: 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+  background: transparent;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.kutit-more-button::-webkit-details-marker {
+  display: none;
+}
+
+.kutit-spots-more {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1px;
+  background: rgba(20, 20, 20, 0.14);
+}
+
+.kutit-spots-more .kutit-video-card {
+  border: 0;
+  background: #f7f5f0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .kutit-audiovisual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kutit-reel-feature {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .kutit-spots-grid,
+  .kutit-spots-more {
+    grid-template-columns: 1fr;
+  }
+
+  .kutit-spots-grid {
+    grid-template-rows: none;
+  }
+
+  .kutit-reel-feature {
+    min-height: 240px;
   }
 }
