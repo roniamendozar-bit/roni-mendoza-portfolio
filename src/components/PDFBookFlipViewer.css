@@ -1,0 +1,679 @@
+/* ========================================
+   PDF FLIPBOOK VIEWER
+   EXPERIENCIA EDITORIAL PREMIUM
+======================================== */
+
+.pdf-flip-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #292929 0%,
+      #151515 38%,
+      #090909 100%
+    );
+
+  color: #f5f3ed;
+
+  animation: flipbookAppear 320ms ease-out;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.pdf-flip-header {
+  position: relative;
+  z-index: 30;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 22px 34px 16px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.13);
+}
+
+.pdf-flip-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pdf-flip-heading span {
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 8px;
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+.pdf-flip-heading strong {
+  font-family:
+    'Manrope',
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.pdf-flip-close {
+  appearance: none;
+
+  border: 0;
+  padding: 7px 0;
+
+  background: transparent;
+
+  color: #f5f3ed;
+
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 9px;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pdf-flip-close:hover {
+  color: #146ef5;
+
+  transform:
+    translateX(-2px);
+}
+
+.pdf-flip-fullscreen {
+  appearance: none;
+
+  border: 0;
+  padding: 7px 14px;
+
+  background: transparent;
+
+  color: #f5f3ed;
+
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.pdf-flip-fullscreen:hover {
+  color: #146ef5;
+
+  background:
+    rgba(20, 110, 245, 0.08);
+
+  transform:
+    translateY(-1px);
+}
+
+/* ========================================
+   STAGE
+======================================== */
+
+.pdf-flip-stage {
+  position: relative;
+
+  flex: 1 1 auto;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    30px
+    120px
+    26px;
+
+  perspective: 1800px;
+}
+
+/* ========================================
+   LIBRO
+======================================== */
+
+.pdf-flip-book-wrap {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+}
+
+/*
+  Luz atmosférica detrás del libro.
+*/
+
+.pdf-flip-glow {
+  position: absolute;
+
+  width: 72%;
+  height: 45%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(20, 110, 245, 0.09);
+
+  filter: blur(70px);
+
+  transform:
+    translateY(30px);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   FLIPBOOK
+======================================== */
+
+.premium-flipbook {
+  position: relative;
+
+  z-index: 5;
+
+  transform:
+    translateZ(0);
+
+  filter:
+    drop-shadow(
+      0 20px 35px rgba(0, 0, 0, 0.28)
+    )
+    drop-shadow(
+      0 45px 70px rgba(0, 0, 0, 0.32)
+    );
+}
+
+/*
+  El motor controla el elemento raíz.
+  Los estilos visuales van en el interior.
+*/
+
+.flipbook-page {
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.flipbook-page-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  box-shadow:
+  inset 0 0 0 1px rgba(0, 0, 0, 0.055),
+  inset 12px 0 22px rgba(0, 0, 0, 0.035),
+  inset -12px 0 22px rgba(0, 0, 0, 0.018);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipbook-page-inner img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ========================================
+   LOMO
+======================================== */
+
+.pdf-flip-spine {
+  position: absolute;
+
+  z-index: 12;
+
+  top: 1.5%;
+
+  left: 50%;
+
+  width: 2px;
+  height: 97%;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.18),
+      rgba(255, 255, 255, 0.22),
+      rgba(0, 0, 0, 0.10)
+    );
+
+  opacity: 0.48;
+
+  pointer-events: none;
+}
+
+/* ========================================
+   NAVEGACIÓN LATERAL
+======================================== */
+
+.pdf-flip-nav {
+  position: absolute;
+
+  z-index: 40;
+
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  transform:
+    translateY(-50%);
+
+  padding: 13px 15px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  background:
+    rgba(10, 10, 10, 0.56);
+
+  color: #f5f3ed;
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.pdf-flip-nav span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.pdf-flip-nav small {
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.07em;
+}
+
+.pdf-flip-nav:hover:not(:disabled) {
+  background: #146ef5;
+
+  border-color: #146ef5;
+}
+
+.pdf-flip-prev {
+  left: 26px;
+}
+
+.pdf-flip-next {
+  right: 26px;
+}
+
+.pdf-flip-prev:hover:not(:disabled) {
+  transform:
+    translate(-3px, -50%);
+}
+
+.pdf-flip-next:hover:not(:disabled) {
+  transform:
+    translate(3px, -50%);
+}
+
+.pdf-flip-nav:disabled {
+  opacity: 0.18;
+
+  cursor: default;
+}
+
+/* ========================================
+   CARGA
+======================================== */
+
+.pdf-flip-loading {
+  position: relative;
+  z-index: 10;
+
+  width: min(420px, 70vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.pdf-flip-loading-number {
+  font-family:
+    'Manrope',
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    56px,
+    8vw,
+    110px
+  );
+
+  line-height: 0.9;
+
+  font-weight: 600;
+
+  letter-spacing: -0.07em;
+
+  color: #f5f3ed;
+}
+
+.pdf-flip-loading-number span {
+  margin-left: 5px;
+
+  font-size: 0.24em;
+
+  letter-spacing: 0;
+}
+
+.pdf-flip-loading-line {
+  width: 100%;
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  overflow: hidden;
+}
+
+.pdf-flip-loading-line div {
+  height: 100%;
+
+  background: #146ef5;
+
+  transition:
+    width 180ms ease;
+}
+
+.pdf-flip-loading p {
+  margin: 0;
+
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.11em;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+.pdf-flip-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  text-align: center;
+}
+
+.pdf-flip-error p {
+  max-width: 400px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 14px;
+}
+
+.pdf-flip-error button {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  padding: 10px 15px;
+
+  background: transparent;
+
+  color: #f5f3ed;
+
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.pdf-flip-error button:hover {
+  border-color: #146ef5;
+
+  color: #146ef5;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.pdf-flip-footer {
+  position: relative;
+  z-index: 30;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding:
+    12px
+    34px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.13);
+
+  font-family:
+    'IBM Plex Mono',
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+
+  color:
+    rgba(255, 255, 255, 0.40);
+}
+
+.pdf-flip-footer strong {
+  color: #f5f3ed;
+
+  font-size: 10px;
+}
+
+.pdf-flip-footer span:last-child {
+  text-align: right;
+}
+
+/* ========================================
+   ENTRADA
+======================================== */
+
+@keyframes flipbookAppear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+  .pdf-flip-header {
+    padding:
+      17px
+      20px
+      13px;
+  }
+
+  .pdf-flip-stage {
+    padding:
+      22px
+      62px
+      20px;
+  }
+
+  .pdf-flip-prev {
+    left: 11px;
+  }
+
+  .pdf-flip-next {
+    right: 11px;
+  }
+
+  .pdf-flip-nav {
+    padding: 10px;
+  }
+
+  .pdf-flip-nav small {
+    display: none;
+  }
+
+  .pdf-flip-footer {
+    padding:
+      11px
+      20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pdf-flip-stage {
+    padding:
+      14px
+      45px
+      16px;
+  }
+
+  .pdf-flip-heading strong {
+    font-size: 12px;
+  }
+
+  .pdf-flip-footer {
+    grid-template-columns:
+      1fr
+      auto;
+  }
+
+  .pdf-flip-footer span:last-child {
+    display: none;
+  }
+
+  .pdf-flip-nav span {
+    font-size: 16px;
+  }
+
+  .pdf-flip-nav {
+    border-color:
+      rgba(255, 255, 255, 0.10);
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pdf-flip-viewer,
+  .pdf-flip-close,
+  .pdf-flip-nav {
+    animation: none;
+    transition: none;
+  }
+}
