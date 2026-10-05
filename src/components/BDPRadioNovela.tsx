@@ -10,7 +10,7 @@ type SelectedMedia = {
 }
 
 const chapterFiles = import.meta.glob(
-  '../assets/projects/bdp-radio-novela/capitulos/*.{mp4,webm,mov}',
+'../assets/projects/bdp-radio-novela/capitulos-publicar/*.{mp4,webm,mov}',
   {
     eager: true,
     query: '?url',
