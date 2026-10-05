@@ -10,8 +10,8 @@ import KutitInnovation from './components/KutitInnovation'
 import ccimcatCuaderno from './assets/projects/ccimcat/01-cuaderno-mockup.png'
 import ccimcatBanner from './assets/projects/ccimcat/02-banner-ami-v2.png'
 import ccimcatLetrero from './assets/projects/ccimcat/03-letrero-semillitas-al-aire.png'
-import ccimcatPodcast from './assets/projects/ccimcat/04-podcast-semillitas-al-aire-episodio-03.mp4'
-import ccimcatSpot from './assets/projects/ccimcat/05-spot-m3k-de-la-mano-de-una-nina.mp4'
+import ccimcatPodcast from './assets/projects/ccimcat/videos-publicar/04-podcast-semillitas-al-aire-episodio-03.mp4'
+import ccimcatSpot from './assets/projects/ccimcat/videos-publicar/05-spot-m3k-de-la-mano-de-una-nina.mp4'
 import ccimcatCartilla from './assets/projects/ccimcat/06-cartilla-ruta-del-emprendedor.pdf'
 
 import './App.css'
@@ -684,10 +684,10 @@ const closeMedia = () => {
 
   <BrandGallery />
   <CCIMCAT2025Resources />
+</article>
+
   <BDPRadioNovela />
   <KutitInnovation />
-
-</article>
 
 </section>
 

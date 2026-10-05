@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 videos-publicar/
 src/assets/projects/bdp-radio-novela/capitulos/
+src/assets/projects/ccimcat/*.mp4
